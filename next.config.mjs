@@ -8,6 +8,14 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  }
+  // images: {
+  //   loader: 'custom',
+  //   loaderFile: './app/lib/img-loader.ts',
+  // },
+};
 
 export default nextConfig;

@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "my-next-app"
+name = "media-del-bebe"
 compatibility_date = "2024-11-12"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
@@ -54,9 +54,9 @@ pages_build_output_dir = ".vercel/output/static"
 
 # Bind an R2 Bucket. Use R2 to store arbitrarily large blobs of data, such as files.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#r2-buckets
-# [[r2_buckets]]
-# binding = "MY_BUCKET"
-# bucket_name = "my-bucket"
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "sebien-ak"
 
 # Bind another Worker service. Use this binding to call another Worker without network overhead.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#service-bindings
@@ -68,14 +68,14 @@ pages_build_output_dir = ".vercel/output/static"
 # When using environment-specific overrides for bindings, ALL bindings must be specified on a per-environment basis.
 # Docs: https://developers.cloudflare.com/pages/functions/wrangler-configuration#environment-specific-overrides
 
-######## PREVIEW environment config ########
+####### PREVIEW environment config ########
 
 # [env.preview.vars]
-# API_KEY = "xyz789"
+# # API_KEY = "xyz789"
 
-# [[env.preview.kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "<PREVIEW_NAMESPACE_ID>"
+# [[env.preview.r2_buckets]]
+# binding = "R2_BUCKET"
+# bucket_name = "sebien-ak"
 
 ######## PRODUCTION environment config ########
 
