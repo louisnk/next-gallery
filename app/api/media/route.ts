@@ -1,11 +1,12 @@
+export const runtime = "edge"
+
 import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3"
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner"
 import { getRequestContext } from "@cloudflare/next-on-pages"
-// import type { R2Bucket, CloudflareEnv } from '@cloudflare/workers-types'
 import { headers } from "next/headers"
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
-export const runtime = "edge"
+
 
 // interface CfEnv extends CloudflareEnv {
 //   R2_BUCKET: R2Bucket;
