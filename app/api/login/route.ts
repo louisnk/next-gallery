@@ -1,4 +1,6 @@
-import jwt from "jsonwebtoken"
+export const runtime = "edge"
+
+import jwt from "@tsndr/cloudflare-worker-jwt"
 import { NextResponse } from "next/server"
 
 const SECRET_KEY = process.env.JWT_SECRET || "fallback-secret-key"
@@ -23,7 +25,13 @@ export async function POST(req: Request) {
     }
 
     // Create JWT token
-    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: "7d" })
+    const token = await jwt.sign(
+      {
+        username,
+        exp: Math.floor(Date.now() / 1000) + 168 * (60 * 60),
+      },
+      SECRET_KEY,
+    )
 
     return NextResponse.json({ token })
   } catch (error) {

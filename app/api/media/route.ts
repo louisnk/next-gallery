@@ -7,7 +7,6 @@ import { headers } from "next/headers"
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
-
 // interface CfEnv extends CloudflareEnv {
 //   R2_BUCKET: R2Bucket;
 //   // any other custom bindings
